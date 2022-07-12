@@ -28,7 +28,6 @@ import {
 import { SearchOutlined } from '@vicons/antd'
 import { useI18n } from 'vue-i18n'
 import { useTable } from './use-table'
-import Card from '@/components/card'
 import ClusterModal from './components/cluster-modal'
 
 const clusterManage = defineComponent({
@@ -103,7 +102,7 @@ const clusterManage = defineComponent({
 
     return (
       <NSpace vertical>
-        <NCard>
+        <NCard size='small'>
           <NSpace justify='space-between'>
             <NButton
               size='small'
@@ -121,18 +120,14 @@ const clusterManage = defineComponent({
                 placeholder={t('security.cluster.search_tips')}
               />
               <NButton size='small' type='primary' onClick={onSearch}>
-                {{
-                  icon: () => (
-                    <NIcon>
-                      <SearchOutlined />
-                    </NIcon>
-                  )
-                }}
+                <NIcon>
+                  <SearchOutlined />
+                </NIcon>
               </NButton>
             </NSpace>
           </NSpace>
         </NCard>
-        <Card>
+        <NCard size='small'>
           <NSpace vertical>
             <NDataTable
               loading={loadingRef}
@@ -154,7 +149,7 @@ const clusterManage = defineComponent({
               />
             </NSpace>
           </NSpace>
-        </Card>
+        </NCard>
         <ClusterModal
           showModalRef={this.showModalRef}
           statusRef={this.statusRef}
